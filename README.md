@@ -1,5 +1,5 @@
 # Instagram-Clone
-This is a MERN (M- Mysql ) based clone web app:-
+This is a MERN (M- Mysql ) based instagram clone web app:-
 Node.js, Express.js framework and Mysql are used to build server side.
 React.js Redux.js are used to build client side app.
 It   has some features same as instagram as follows:-
