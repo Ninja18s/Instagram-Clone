@@ -1,3 +1,4 @@
+const { json } = require("express");
 const pool = require("../db");
 
 
@@ -7,7 +8,7 @@ const post = {};
 
 post.createNewPost = async (postId, userId, userName, imageName, caption) => {
     const query = `INSERT INTO post (postId, userId, userName, imageName, caption)
-    VALUES(?,?,?,?,?; `;
+    VALUES(?,?,?,?,?)`;
 
     const params = [postId, userId, userName, imageName, caption];
 
@@ -19,7 +20,7 @@ post.createNewPost = async (postId, userId, userName, imageName, caption) => {
 
 
 post.viewPostbyUsername = async(userName) => {
-    const query = `SELECT * FROM post WHERE userName = ?`;
+    const query = `SELECT imageName FROM post WHERE userName = ?`;
 
     const params = [userName];
 
@@ -38,16 +39,28 @@ post.viewPostbyUserid = async(userId) => {
     return result;
 }
 
+post.getImageName = async(postId) =>{
+    
+    
+    const query = `SELECT imageName FROM post WHERE postId = ?`;
+
+    params = [postId];
+
+    const result = await pool.makeQuery( query, params);
+    
+    return JSON.parse( JSON.stringify(result[0].imageName));
+}
+
 post.deletePost = async(postId) => {
     
-   
+    
     const query = `DELETE FROM post WHERE postId =? `;
 
     const params = [postId];
 
-    const result = await pool.makeQuery(query, params);
+                    console.log(await pool.makeQuery(query, params));
     
-    return  id;
+    return postId  ;
 }
 
 

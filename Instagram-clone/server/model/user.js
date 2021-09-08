@@ -38,6 +38,17 @@ user.getUserByUsername = async( userName) => {
 
 }
 
+user.deleteUser = async (userName , password) => {
+
+    const query = `DELETE FROM user WHERE userName =? AND password =?`;
+
+    const params = [userName, password];
+
+    await pool.makeQuery( query, params);
+
+    return 'success';
+}
+
 
 
 

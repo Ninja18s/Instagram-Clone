@@ -23,7 +23,7 @@ async function deleteCommentOnPost(req, res, next){
     
 
     try{
-        const like =  await deleteComment ( postId, userName) ;
+          await deleteComment ( postId, userName) ;
         res.send({
             
             success: true

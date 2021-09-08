@@ -26,7 +26,7 @@ async function handleLogin(req, res, next){
                 const token = jwt.sign({
                     userId: existedUser.userId,
                     userName: existedUser.userName
-                },'NAHIBATAUNGA',{expiresIn: 60*60});
+                },'NAHIBATAUNGA',{expiresIn: 24*60*60});
 
                 res.send({
                     success: true,

@@ -12,6 +12,7 @@ const pool  = mysql.createPool({
 
 
 pool.makeQuery = (query, params=[])=> {
+    
     return new Promise((res, rej)=> {
         pool.query(query, params, (err, result)=>{
             if(err) rej(err);

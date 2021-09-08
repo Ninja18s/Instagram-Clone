@@ -15,6 +15,7 @@ function authMiddleware(req, res, next){
         
            req.userId = userId;
            req.userName = userName;
+          
            next(); 
          
         
